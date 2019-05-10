@@ -2,15 +2,20 @@
   <head>
     <script src="../index.js"></script>
     <script>
-      const fuelConsumption = new FuelConsumptionCalculator({ distance: 1 })
       function computeConsumption() {
-        console.log("fuelConsumption", fuelConsumption.distance)
+        const fuelConsumption = new FuelConsumptionCalculator({
+          distance: document.getElementById("distance").value,
+          fuelPer100Km: document.getElementById("fuel").value,
+          fuelCost: document.getElementById("cost").value,
+        })
+        document.getElementById("consumption").innerHTML = JSON.stringify(
+          fuelConsumption.computeConsumption()
+        )
       }
     </script>
   </head>
   <body>
     <h1>Fuel Consumption Calculator</h1>
-    <p>This is a simple form and mathematical result test</p>
     <p>
       Distance Driven (km):<input
         id="distance"
@@ -21,7 +26,7 @@
       />
     </p>
     <p>
-      Fuel Consumed (L):<input
+      Your Car's Fuel Consumption for 100km (L):<input
         id="fuel"
         type="number"
         min="10"
@@ -31,17 +36,17 @@
       />
     </p>
     <p>
-      Cost per Unit of Fuel: €
+      Cost of Fuel: €
       <input
-        id="costper"
+        id="cost"
         type="number"
-        min="1.49"
+        min="1.00"
         max="10"
         step="0.01"
         value="1.49"
         onchange="computeConsumption()"
       />
     </p>
-    <h2 id="consumption"></h2>
+    <pre id="consumption"></pre>
   </body>
 </html>
