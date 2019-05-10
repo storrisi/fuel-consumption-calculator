@@ -1,0 +1,22 @@
+{
+  "name": "fuel-consumption-calculator",
+  "version": "1.0.0",
+  "description": "Fuel Consumption Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storrisi/fuel-consumption-calculator.git"
+  },
+  "author": "Simone Torrisi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storrisi/fuel-consumption-calculator/issues"
+  },
+  "homepage": "https://github.com/storrisi/fuel-consumption-calculator#readme",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
+}
