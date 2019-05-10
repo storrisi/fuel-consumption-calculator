@@ -14,4 +14,4 @@ class FuelConsumptionCalculator {
     }
 }
 
-export default FuelConsumptionCalculator
+module.exports = FuelConsumptionCalculator

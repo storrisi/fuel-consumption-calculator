@@ -16,7 +16,7 @@
     "url": "https://github.com/storrisi/fuel-consumption-calculator/issues"
   },
   "homepage": "https://github.com/storrisi/fuel-consumption-calculator#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^24.8.0"
   }
 }
