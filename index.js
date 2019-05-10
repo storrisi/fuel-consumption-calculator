@@ -1,17 +1,26 @@
-
 class FuelConsumptionCalculator {
-    constructor(distance, fuelAmount, fuelCost) {
-        this.distance = distance
-        this.fuelAmount = fuelAmount
-        this.fuelCost = fuelCost
-    }
+  constructor({ distance, fuelPer100Km, fuelCost }) {
+    this.distance = parseFloat(distance) || 0
+    this.fuelPer100Km = parseFloat(fuelPer100Km)
+    this.fuelPerKm = parseFloat((fuelPer100Km / 100).toFixed(2))
+    this.kmPerLiter = parseFloat((100 / fuelPer100Km).toFixed(2))
+    this.fuelAmount = parseFloat(this.distance * this.fuelPerKm)
+    this.fuelCost = parseFloat(fuelCost)
+  }
 
-    computeConsumption() {
-        const consumed =  (this.fuelAmount / (this.distance/100)).toFixed(2);
-        const costper100 = (consumed * this.fuelCost).toFixed(2);
-        const totalCost = (this.fuelAmount*this.fuelCost).toFixed(2)
-        return {consumed, costper100, totalCost}
+  addStage({ distance }) {
+    this.distance += distance
+    this.fuelAmount = parseFloat(this.distance * this.fuelPerKm)
+  }
+
+  computeConsumption() {
+    const totalCost = parseFloat((this.fuelAmount * this.fuelCost).toFixed(2))
+    return {
+      distance: this.distance,
+      fuelAmount: this.fuelAmount,
+      totalCost,
     }
+  }
 }
 
 module.exports = FuelConsumptionCalculator
