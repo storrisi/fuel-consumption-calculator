@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script src="../index.js"></script>
+    <script>
+      const fuelConsumption = new FuelConsumptionCalculator({ distance: 1 })
+      function computeConsumption() {
+        console.log("fuelConsumption", fuelConsumption.distance)
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Fuel Consumption Calculator</h1>
+    <p>This is a simple form and mathematical result test</p>
+    <p>
+      Distance Driven (km):<input
+        id="distance"
+        type="number"
+        min="150"
+        max="1000000"
+        onchange="computeConsumption();"
+      />
+    </p>
+    <p>
+      Fuel Consumed (L):<input
+        id="fuel"
+        type="number"
+        min="10"
+        max="10000000"
+        step="1"
+        onchange="computeConsumption()"
+      />
+    </p>
+    <p>
+      Cost per Unit of Fuel: €
+      <input
+        id="costper"
+        type="number"
+        min="1.49"
+        max="10"
+        step="0.01"
+        value="1.49"
+        onchange="computeConsumption()"
+      />
+    </p>
+    <h2 id="consumption"></h2>
+  </body>
+</html>
